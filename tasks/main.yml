@@ -1,0 +1,5 @@
+---
+# tasks file for ansible-role-date-time
+- name: set timezone
+  timezone:
+    name: "{{ date_time_timezone }}"
