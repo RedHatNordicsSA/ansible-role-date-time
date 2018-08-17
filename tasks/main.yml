@@ -3,3 +3,23 @@
 - name: set timezone
   timezone:
     name: "{{ date_time_timezone }}"
+
+- name: Install Chrony
+  package:
+    name: chrony
+    state: latest
+  notify: restart chronyd
+
+- name: Enable service chronyd, and not touch the running state
+  service:
+    name: chronyd
+    enabled: yes
+
+- name: Configure /etc/chrony.conf
+  template:
+    src: chrony.conf.j2
+    dest: /etc/chrony.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart chronyd
