@@ -1,6 +1,6 @@
 ---
 # defaults file for ansible-role-date-time
-date_time_timezone: Europe/Stockholm
+date_time_timezone: "Europe/Stockholm"
 date_time_timeservers:
   - 0.rhel.pool.ntp.org
   - 1.rhel.pool.ntp.org
